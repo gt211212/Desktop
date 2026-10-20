@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estoque de Peças - Oficina</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<aside class="sidebar">
+<div class="logo"><div class="logo-icon">⚙</div><div>Sistema de Gestão<small>Oficina Mecânica</small></div></div>
+<nav class="nav">
+<a href="dashboard.html">⌂ <span>Dashboard</span></a>
+<a href="estoque.html" class="active">▣ <span>Estoque</span></a>
+<a href="ordens.html">▤ <span>Ordens de Serviço</span></a>
+<a href="clientes.html">♙ <span>Clientes</span></a>
+<a href="veiculos.html">▱ <span>Veículos</span></a>
+<a href="mecanicos.html">♟ <span>Mecânicos</span></a>
+<a href="fornecedores.html">▦ <span>Fornecedores</span></a>
+<a href="pagamentos.html">$ <span>Pagamentos</span></a>
+<a href="relatorios.html">▥ <span>Relatórios</span></a>
+</nav>
+<div class="bottom-nav">
+<a href="configuracoes.html">⚙ <span>Configurações</span></a>
+<a href="login.html" id="sair">↪ <span>Sair</span></a>
+</div>
+</aside>
+<main class="main">
+<header class="topbar">
+<input class="search" id="buscaGlobal" placeholder="Buscar nesta página...">
+<div class="user"><span data-user>Bruno Honorato</span><br><small>Administrador</small></div>
+</header>
+<section class="content">
+<h1>Estoque de Peças</h1>
+<p class="subtitle">Gerencie o estoque de peças da sua oficina.</p>
+
+<div class="toolbar">
+<input class="field" id="busca" placeholder="Buscar peça, código ou fornecedor...">
+<select class="field" id="filtroFornecedor"><option value="">Todos os fornecedores</option></select>
+<select class="field" id="filtroStatus"><option value="">Todos os status</option><option value="ok">Estoque OK</option><option value="baixo">Estoque baixo</option></select>
+<button class="btn secondary" type="button" onclick="limparFiltros()">Limpar</button>
+<button class="btn secondary" type="button" onclick="exportarDados()">Exportar JSON</button>
+<button class="btn" data-novo>+ Nova Peça</button>
+</div>
+<div class="card table-wrap">
+<table>
+<thead><tr><th>Código</th><th>Peça</th><th>Marca</th><th>Fornecedor</th><th>Estoque</th><th>Mínimo</th><th>Preço</th><th>Local</th><th>Status</th><th>Ações</th></tr></thead>
+<tbody id="tabela"></tbody>
+</table>
+</div>
+<div class="grid grid-4" style="margin-top:18px">
+<div class="card"><div class="stat-title">Tipos de peças</div><div class="stat-value" id="totalPecas">0</div></div>
+<div class="card"><div class="stat-title">Estoque baixo</div><div class="stat-value" id="estoqueBaixo">0</div></div>
+<div class="card"><div class="stat-title">Fornecedores</div><div class="stat-value" id="totalFornecedores">0</div></div>
+<div class="card"><div class="stat-title">Valor em estoque</div><div class="stat-value" id="valorEstoque">R$ 0,00</div></div>
+</div>
+<div id="modalCadastro" class="modal">
+<div class="modal-box">
+<div class="modal-head"><h2>Nova Peça</h2><button type="button" class="btn danger small" onclick="closeModal('modalCadastro')">✕</button></div>
+<form id="formCadastro">
+<input type="hidden" name="_id">
+<div class="form-grid">
+<div class="form-group"><label>Nome da peça</label><input class="field" type="text" name="nome" id="f_nome" required ></div><div class="form-group"><label>Código</label><input class="field" type="text" name="codigo" id="f_codigo" required ></div><div class="form-group"><label>Marca</label><input class="field" type="text" name="marca" id="f_marca" ></div><div class="form-group"><label>Fornecedor</label><select class="field" name="fornecedor" id="f_fornecedor" required></select></div><div class="form-group"><label>Estoque atual</label><input class="field" type="number" name="estoque" id="f_estoque" required min="0"></div><div class="form-group"><label>Estoque mínimo</label><input class="field" type="number" name="estoqueMinimo" id="f_estoqueMinimo" required min="0"></div><div class="form-group"><label>Preço (R$)</label><input class="field" type="number" name="preco" id="f_preco" required step="0.01" min="0"></div><div class="form-group"><label>Localização</label><input class="field" type="text" name="localizacao" id="f_localizacao" ></div>
+</div>
+<div class="form-footer"><button type="button" class="btn secondary" onclick="closeModal('modalCadastro')">Cancelar</button><button type="submit" class="btn">Salvar peça</button></div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/estoque.js"></script>
+</body>
+</html>

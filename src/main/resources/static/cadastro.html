@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criar conta - Oficina</title>
+<link rel="stylesheet" href="casdatro.css">
+</head>  
+<body>
+<div class="login-wrap">
+<div class="card">
+<h1>Criar conta</h1>
+<p class="subtitle">Sistema de Gestão · Oficina Mecânica</p>
+<div id="aviso" class="aviso" hidden></div>
+<form id="formCadastro">
+<div class="form-group"><label>Nome completo</label><input class="field" id="nome" required></div>
+<br>
+<div class="form-group"><label>E-mail</label><input class="field" id="email" type="email" required></div>
+<br>
+<div class="form-group"><label>Perfil</label>
+<select class="field" id="perfil"><option>Atendente</option><option>Mecânico</option><option>Administrador</option></select></div>
+<br>
+<div class="form-group"><label>Senha (mínimo 6 caracteres)</label><input class="field" id="senha" type="password" minlength="6" required></div>
+<br>
+<div class="form-group"><label>Confirmar senha</label><input class="field" id="confirmar" type="password" minlength="6" required></div>
+<br>
+<button class="btn" style="width:100%">Criar conta</button>
+</form>
+<p class="muted" style="text-align:center;margin-top:16px">Já tem conta? <a href="login.html" style="color:#69b1ff">Entrar</a></p>
+</div>
+</div>
+<script src="js/app.js"></script>
+<script src="cadastro.js"></script>
+</body>
+</html>

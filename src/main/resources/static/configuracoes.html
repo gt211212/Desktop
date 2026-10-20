@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurações - Oficina</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<aside class="sidebar">
+<div class="logo"><div class="logo-icon">⚙</div><div>Sistema de Gestão<small>Oficina Mecânica</small></div></div>
+<nav class="nav">
+<a href="dashboard.html">⌂ <span>Dashboard</span></a>
+<a href="estoque.html">▣ <span>Estoque</span></a>
+<a href="ordens.html">▤ <span>Ordens de Serviço</span></a>
+<a href="clientes.html">♙ <span>Clientes</span></a>
+<a href="veiculos.html">▱ <span>Veículos</span></a>
+<a href="mecanicos.html">♟ <span>Mecânicos</span></a>
+<a href="fornecedores.html">▦ <span>Fornecedores</span></a>
+<a href="pagamentos.html">$ <span>Pagamentos</span></a>
+<a href="relatorios.html">▥ <span>Relatórios</span></a>
+</nav>
+<div class="bottom-nav">
+<a href="configuracoes.html" class="active">⚙ <span>Configurações</span></a>
+<a href="login.html" id="sair">↪ <span>Sair</span></a>
+</div>
+</aside>
+<main class="main">
+<header class="topbar">
+<input class="search" id="buscaGlobal" placeholder="Buscar nesta página...">
+<div class="user"><span data-user>Bruno Honorato</span><br><small>Administrador</small></div>
+</header>
+<section class="content">
+<h1>Configurações</h1>
+<p class="subtitle">Gerencie as informações da conta e do sistema.</p>
+<div class="settings">
+<div class="card settings-menu">
+<button class="active" data-tab="tabEmpresa">Dados da Empresa</button>
+<button data-tab="tabUsuario">Usuário</button>
+<button data-tab="tabBackup">Backup</button>
+</div>
+<div>
+<div class="card painel-config active" id="tabEmpresa"><h2>Dados da Empresa</h2>
+<form id="formEmpresa"><div class="form-grid">
+<div class="form-group"><label>Nome da oficina</label><input class="field" name="nome" required></div>
+<div class="form-group"><label>CNPJ</label><input class="field" name="cnpj"></div>
+<div class="form-group"><label>Telefone</label><input class="field" name="telefone"></div>
+<div class="form-group"><label>E-mail</label><input class="field" type="email" name="email"></div>
+<div class="form-group full"><label>Endereço</label><input class="field" name="endereco"></div>
+</div><div class="form-footer"><button class="btn" type="submit">Salvar alterações</button></div></form></div>
+<div class="card painel-config" id="tabUsuario"><h2>Usuário</h2>
+<form id="formUsuario"><div class="form-group"><label>Nome exibido no topo das páginas</label><input class="field" id="nomeUsuario" required></div>
+<div class="form-footer"><button class="btn" type="submit">Salvar nome</button></div></form></div>
+<div class="card painel-config" id="tabBackup"><h2>Backup</h2>
+<p class="muted">Os dados ficam salvos neste navegador. Exporte um backup para guardar uma cópia ou levar para outro computador.</p>
+<div class="btn-row"><button class="btn" onclick="exportarTudo()">Exportar backup</button>
+<label class="btn secondary" style="display:inline-block">Importar backup<input type="file" id="arquivoBackup" accept=".json" hidden></label>
+<button class="btn danger" onclick="limparTudo()">Apagar todos os dados</button></div></div>
+</div>
+</div>
+</section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/configuracoes.js"></script>
+</body>
+</html>

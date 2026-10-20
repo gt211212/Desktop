@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - Oficina</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<aside class="sidebar">
+<div class="logo"><div class="logo-icon">⚙</div><div>Sistema de Gestão<small>Oficina Mecânica</small></div></div>
+<nav class="nav">
+<a href="dashboard.html" class="active">⌂ <span>Dashboard</span></a>
+<a href="estoque.html">▣ <span>Estoque</span></a>
+<a href="ordens.html">▤ <span>Ordens de Serviço</span></a>
+<a href="clientes.html">♙ <span>Clientes</span></a>
+<a href="veiculos.html">▱ <span>Veículos</span></a>
+<a href="mecanicos.html">♟ <span>Mecânicos</span></a>
+<a href="fornecedores.html">▦ <span>Fornecedores</span></a>
+<a href="pagamentos.html">$ <span>Pagamentos</span></a>
+<a href="relatorios.html">▥ <span>Relatórios</span></a>
+</nav>
+<div class="bottom-nav">
+<a href="configuracoes.html">⚙ <span>Configurações</span></a>
+<a href="login.html" id="sair">↪ <span>Sair</span></a>
+</div>
+</aside>
+<main class="main">
+<header class="topbar">
+<input class="search" id="buscaGlobal" placeholder="Buscar nesta página...">
+<div class="user"><span data-user>Bruno Honorato</span><br><small>Administrador</small></div>
+</header>
+<section class="content">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px">
+<div><h1 id="saudacao">Olá!</h1><p class="subtitle" style="margin-bottom:22px">Aqui está um resumo da sua oficina hoje.</p></div>
+<div class="muted" id="dataHoje" style="margin-bottom:22px"></div>
+</div>
+<div class="grid grid-4">
+<div class="card"><div class="stat-title">Peças em estoque</div><div class="stat-value" id="cardPecas">0</div><div class="stat-note">Unidades somadas</div></div>
+<div class="card"><div class="stat-title">Ordens de Serviço</div><div class="stat-value" id="cardOS">0</div><div class="stat-note">Em andamento</div></div>
+<div class="card"><div class="stat-title">Clientes</div><div class="stat-value" id="cardClientes">0</div><div class="stat-note">Cadastrados</div></div>
+<div class="card"><div class="stat-title">Receita do mês</div><div class="stat-value" id="cardReceita">R$ 0,00</div><div class="stat-note">Pagamentos com status Pago</div></div>
+</div>
+<div class="grid grid-2">
+<div class="card"><div class="card-head"><h2>Ordens de Serviço</h2><span class="muted">Últimos 7 dias</span></div><div id="graficoOS"></div></div>
+<div class="card"><div class="card-head"><h2>Estoque baixo</h2><a href="estoque.html">Ver todos</a></div>
+<table><thead><tr><th>Peça</th><th>Estoque</th><th>Mínimo</th></tr></thead><tbody id="tabelaBaixo"></tbody></table></div>
+</div>
+<div class="card"><div class="card-head"><h2>Últimas Ordens de Serviço</h2><a href="ordens.html">Ver todas</a></div>
+<div class="table-wrap" style="padding:0"><table><thead><tr><th>Nº OS</th><th>Cliente</th><th>Veículo</th><th>Status</th><th>Data</th></tr></thead><tbody id="tabelaOS"></tbody></table></div></div>
+</section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

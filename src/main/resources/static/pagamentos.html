@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagamentos - Oficina</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<aside class="sidebar">
+<div class="logo"><div class="logo-icon">⚙</div><div>Sistema de Gestão<small>Oficina Mecânica</small></div></div>
+<nav class="nav">
+<a href="dashboard.html">⌂ <span>Dashboard</span></a>
+<a href="estoque.html">▣ <span>Estoque</span></a>
+<a href="ordens.html">▤ <span>Ordens de Serviço</span></a>
+<a href="clientes.html">♙ <span>Clientes</span></a>
+<a href="veiculos.html">▱ <span>Veículos</span></a>
+<a href="mecanicos.html">♟ <span>Mecânicos</span></a>
+<a href="fornecedores.html">▦ <span>Fornecedores</span></a>
+<a href="pagamentos.html" class="active">$ <span>Pagamentos</span></a>
+<a href="relatorios.html">▥ <span>Relatórios</span></a>
+</nav>
+<div class="bottom-nav">
+<a href="configuracoes.html">⚙ <span>Configurações</span></a>
+<a href="login.html" id="sair">↪ <span>Sair</span></a>
+</div>
+</aside>
+<main class="main">
+<header class="topbar">
+<input class="search" id="buscaGlobal" placeholder="Buscar nesta página...">
+<div class="user"><span data-user>Bruno Honorato</span><br><small>Administrador</small></div>
+</header>
+<section class="content">
+<h1>Pagamentos</h1>
+<p class="subtitle">Registre e acompanhe os pagamentos das ordens de serviço.</p>
+<div class="grid grid-3">
+<div class="card"><div class="stat-title">Recebido</div><div class="stat-value" id="recebido">R$ 0,00</div></div>
+<div class="card"><div class="stat-title">Pendente</div><div class="stat-value" id="pendente">R$ 0,00</div></div>
+<div class="card"><div class="stat-title">Transações</div><div class="stat-value" id="transacoes">0</div></div>
+</div>
+<div class="toolbar">
+<input class="field" id="busca" placeholder="Buscar por cliente ou OS...">
+
+<button class="btn" data-novo>+ Novo Pagamento</button>
+</div>
+<div class="card table-wrap">
+<table>
+<thead><tr><th>OS</th><th>Cliente</th><th>Valor</th><th>Forma</th><th>Status</th><th>Data</th><th>Ações</th></tr></thead>
+<tbody id="tabela"></tbody>
+</table>
+</div>
+
+<div id="modalCadastro" class="modal">
+<div class="modal-box">
+<div class="modal-head"><h2>Novo Pagamento</h2><button type="button" class="btn danger small" onclick="closeModal('modalCadastro')">✕</button></div>
+<form id="formCadastro">
+<input type="hidden" name="_id">
+<div class="form-grid">
+<div class="form-group full"><label>Ordem de serviço</label><select class="field" name="ordemId" id="f_ordemId" required></select></div><div class="form-group"><label>Valor (R$)</label><input class="field" type="number" name="valor" id="f_valor" required step="0.01" min="0"></div><div class="form-group"><label>Forma de pagamento</label><select class="field" name="forma" id="f_forma"><option>Pix</option><option>Dinheiro</option><option>Cartão</option><option>Boleto</option></select></div><div class="form-group"><label>Status</label><select class="field" name="status" id="f_status"><option>Pago</option><option>Pendente</option><option>Cancelado</option></select></div>
+</div>
+<div class="form-footer"><button type="button" class="btn secondary" onclick="closeModal('modalCadastro')">Cancelar</button><button type="submit" class="btn">Salvar pagamento</button></div>
+</form>
+</div>
+</div>
+</section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/pagamentos.js"></script>
+</body>
+</html>
